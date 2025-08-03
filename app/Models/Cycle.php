@@ -31,4 +31,20 @@ class Cycle extends Model
     ];
 
 
+    public function niveaux()
+{
+    return $this->hasMany(Niveau::class);
+}
+
+public function classes()
+{
+    return $this->hasManyThrough(Classe::class, Niveau::class);
+}
+
+public function inscriptions()
+{
+    return $this->hasManyThrough(Inscription::class, Classe::class, 'niveau_id', 'classe_id');
+}
+
+
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('eleve_id')->nullable();
+            $table->bigInteger('inscription_id')->nullable();
             $table->date('date_absence');
             $table->time('heure_absence')->nullable();
             $table->boolean('retard')->default(false);

@@ -10,4 +10,12 @@ class EnseignantRepository extends BaseRepository implements EnseignantRepositor
     {
         $this->model = $enseignant;
     }
+
+
+    public function listeActifs(): Collection
+    {
+        return Enseignant::where('etat', 1)
+            ->orderBy('nom')
+            ->get();
+    }
 }

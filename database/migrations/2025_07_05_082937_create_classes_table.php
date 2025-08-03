@@ -20,7 +20,7 @@ return new class extends Migration
            
             $table->bigInteger('cycle_id')->nullable();
             $table->bigInteger('niveau_id')->nullable();
-            $table->bigInteger('annee_id')->nullable();
+           
 
             $table->integer('etat')->default(1);
 

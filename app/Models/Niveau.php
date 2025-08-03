@@ -36,15 +36,19 @@ class Niveau extends Model
 
 
     public function cycle()
-    {
-        return $this->belongsTo(Cycle::class);
-    }
+{
+    return $this->belongsTo(Cycle::class);
+}
 
+public function classes()
+{
+    return $this->hasMany(Classe::class);
+}
 
-    public function annee()
-    {
-        return $this->belongsTo(Annee::class);
-    }
+public function inscriptions()
+{
+    return $this->hasMany(Inscription::class);
+}
 
 
 
