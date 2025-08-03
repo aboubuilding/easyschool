@@ -20,7 +20,7 @@ class AbsenceRequest extends FormRequest
             'retard' => ['boolean'],
             'motif' => ['nullable', 'string'],
             'justifiee' => ['boolean'],
-            'etat' => ['required', 'in:0,1'],
+           
         ];
     }
 
@@ -33,8 +33,7 @@ class AbsenceRequest extends FormRequest
             'heure_absence.date_format' => 'L\'heure d\'absence doit être au format HH:MM.',
             'retard.boolean' => 'La valeur de retard doit être vraie ou fausse.',
             'justifiee.boolean' => 'La valeur de justification doit être vraie ou fausse.',
-            'etat.required' => 'L\'état est requis.',
-            'etat.in' => 'L\'état doit être 0 (inactif) ou 1 (actif).',
+           
         ];
     }
 }

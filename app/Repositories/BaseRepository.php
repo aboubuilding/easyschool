@@ -11,17 +11,17 @@ abstract class BaseRepository implements BaseRepositoryInterface
 {
     protected Model $model;
 
-    public function all()
+    public function liste()
     {
         return $this->model->where('etat', TypeStatus::ACTIF)->get();
     }
 
-    public function find(int $id)
+    public function rechercher(int $id)
     {
         return $this->model->where('id', $id)->where('etat', TypeStatus::ACTIF)->first();
     }
 
-    public function create(array $data)
+    public function ajouter(array $data)
     {
         $data['created_at'] = Carbon::now();
         $data['updated_at'] = Carbon::now();
@@ -29,7 +29,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $this->model->create($data);
     }
 
-    public function update(int $id, array $data)
+    public function modifier(int $id, array $data)
     {
         $data['updated_at'] = Carbon::now();
 
@@ -38,7 +38,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $instance;
     }
 
-    public function delete(int $id)
+    public function supprimer(int $id)
     {
         $instance = $this->model->findOrFail($id);
         $instance->update([

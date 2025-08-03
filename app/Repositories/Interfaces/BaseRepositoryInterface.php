@@ -4,9 +4,9 @@ namespace App\Repositories\Interfaces;
 
 interface BaseRepositoryInterface
 {
-    public function all();
-    public function find(int $id);
-    public function create(array $data);
-    public function update(int $id, array $data);
-    public function delete(int $id);
+    public function liste();
+    public function rechercher(int $id);
+    public function ajouter(array $data);
+    public function modifier(int $id, array $data);
+    public function supprimer(int $id);
 }

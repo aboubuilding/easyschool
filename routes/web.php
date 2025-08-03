@@ -33,10 +33,11 @@ use App\Http\Controllers\UtilisateurController;
 // ROUTES DE L APPLICATION
 
 
-
+//MENU TABLEAU DE BORD 
 // Tableau de bord
     Route::get('/dashboard', [TableauController::class, 'index'])->name('dashboard');
 
+//MENU INSCRIPTIONS
     // Inscriptions
 
 
@@ -45,17 +46,6 @@ Route::get('/inscriptions/liste', [InscriptionController::class, 'liste'])->name
 Route::get('/inscriptions/modifier/{id}', [InscriptionController::class, 'show'])->name('inscriptions_edit');
 Route::post('/inscriptions/update/{id}', [InscriptionController::class, 'update'])->name('inscriptions_update');
 Route::post('/inscriptions/delete/{id}', [InscriptionController::class, 'destroy'])->name('inscriptions_delete');
-
-
-// Enseignants
-
-
-
-    Route::get('/enseignants/index', [EnseignantController::class, 'index'])->name('enseignants_index');
-Route::get('/enseignants/liste', [EnseignantController::class, 'liste'])->name('enseignants_liste');
-Route::get('/enseignants/modifier/{id}', [EnseignantController::class, 'show'])->name('enseignants_edit');
-Route::post('/enseignants/update/{id}', [EnseignantController::class, 'update'])->name('enseignants_update');
-Route::post('/enseignants/delete/{id}', [EnseignantController::class, 'destroy'])->name('enseignants_delete');
 
 //Parents
 
@@ -70,14 +60,19 @@ Route::post('/parents/delete/{id}', [ParentController::class, 'destroy'])->name(
     Route::get('/parents/liaisons/parents-eleves', [ParentController::class, 'afficheLiaison'])->name('liaisons.index');
     Route::post('/parents/liaisons/parents-eleves', [ParentController::class, 'validerLiaison'])->name('liaisons.store');
 
-//Roles
+//MENU PERSONNEL 
 
-    Route::get('/roles/index', [RoleController::class, 'index'])->name('roles_index');
-Route::get('/roles/liste', [RoleController::class, 'liste'])->name('roles_liste');
-Route::get('/roles/modifier/{id}', [RoleController::class, 'show'])->name('roles_edit');
-Route::post('/roles/update/{id}', [RoleController::class, 'update'])->name('roles_update');
-Route::post('/roles/delete/{id}', [RoleController::class, 'destroy'])->name('roles_delete');
+// Enseignants
 
+
+
+    Route::get('/enseignants/index', [EnseignantController::class, 'index'])->name('enseignants_index');
+Route::get('/enseignants/liste', [EnseignantController::class, 'liste'])->name('enseignants_liste');
+Route::get('/enseignants/modifier/{id}', [EnseignantController::class, 'show'])->name('enseignants_edit');
+Route::post('/enseignants/update/{id}', [EnseignantController::class, 'update'])->name('enseignants_update');
+Route::post('/enseignants/delete/{id}', [EnseignantController::class, 'destroy'])->name('enseignants_delete');
+
+//MENU SCOLARITE 
 
     // Classes
 
@@ -86,7 +81,6 @@ Route::get('/classes/liste', [ClasseController::class, 'liste'])->name('classes_
 Route::get('/classes/modifier/{id}', [ClasseController::class, 'show'])->name('classes_edit');
 Route::post('/classes/update/{id}', [ClasseController::class, 'update'])->name('classes_update');
 Route::post('/classes/delete/{id}', [ClasseController::class, 'destroy'])->name('classes_delete');
-
 
 
 
@@ -118,6 +112,9 @@ Route::post('/matieres/update/{id}', [MatiereController::class, 'update'])->name
 Route::post('/matieres/delete/{id}', [MatiereController::class, 'destroy'])->name('matieres_delete');
 ;
 
+
+
+//MENU PEDAGOGIE
     // Emploi du temps
 
 Route::get('/emploidutemps/index', [EmploidutempsController::class, 'index'])->name('emploidutemps_index');
@@ -153,7 +150,7 @@ Route::post('/devoirs/update/{id}', [DevoirController::class, 'update'])->name('
 Route::post('/devoirs/delete/{id}', [DevoirController::class, 'destroy'])->name('devoirs_delete');
 
 
-
+//MENU COMMUNICATION 
     // Messages
     Route::get('/messages/index', [MessageController::class, 'index'])->name('messages_index');
 Route::get('/messages/liste', [MessageController::class, 'liste'])->name('messages_liste');
@@ -161,13 +158,24 @@ Route::get('/messages/modifier/{id}', [MessageController::class, 'show'])->name(
 Route::post('/messages/update/{id}', [MessageController::class, 'update'])->name('messages_update');
 Route::post('/messages/delete/{id}', [MessageController::class, 'destroy'])->name('messages_delete');
 
-    // Utilisateurs
+    
+
+//MENU ADMINISTRATION 
+// Utilisateurs
     Route::get('/utilisateurs/index', [UtilisateurController::class, 'index'])->name('utilisateurs_index');
 Route::get('/utilisateurs/liste', [UtilisateurController::class, 'liste'])->name('utilisateurs_liste');
 Route::get('/utilisateurs/modifier/{id}', [UtilisateurController::class, 'show'])->name('utilisateurs_edit');
 Route::post('/utilisateurs/update/{id}', [UtilisateurController::class, 'update'])->name('utilisateurs_update');
 Route::post('/utilisateurs/delete/{id}', [UtilisateurController::class, 'destroy'])->name('utilisateurs_delete');
 
+
+//Roles
+
+    Route::get('/roles/index', [RoleController::class, 'index'])->name('roles_index');
+Route::get('/roles/liste', [RoleController::class, 'liste'])->name('roles_liste');
+Route::get('/roles/modifier/{id}', [RoleController::class, 'show'])->name('roles_edit');
+Route::post('/roles/update/{id}', [RoleController::class, 'update'])->name('roles_update');
+Route::post('/roles/delete/{id}', [RoleController::class, 'destroy'])->name('roles_delete');
 
 
 
