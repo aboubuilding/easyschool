@@ -2,44 +2,82 @@
 			<div class="modal fade" id="addPoste">
 				<div class="modal-dialog modal-dialog-centered modal-lg">
 					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title" id="defaultModalLabel">Add New Company</h4>
-							<button type="button" class="btn-close custom-btn-close p-0" data-bs-dismiss="modal" aria-label="Close">
-								<i class="ti ti-x"></i>
-							</button>
-						</div>
-						<form action="" id="form"  enctype="multipart/form-data">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <i class="ti ti-mail"></i> Rédiger un Message
+        </h4>
+        <button type="button" class="btn-close custom-btn-close p-0" data-bs-dismiss="modal" aria-label="Fermer">
+            <i class="ti ti-x"></i>
+        </button>
+    </div>
 
-							 @csrf
-							<div class="modal-body pb-0">
-								<div class="row">
+    <form action="" id="formMessage" enctype="multipart/form-data">
+        @csrf
+        <div class="modal-body pb-0">
+            <div class="row">
 
-									<div class="col-md-12">
-										<div class="mb-3">
-											<label class="form-label">Libelle <span class="text-danger"> *</span></label>
-											<input type="text" class="form-control" id="libelle" name="libelle">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="mb-3">
-											<label class="form-label">Description  <span class="text-danger"> *</span></label>
-											<textarea id="description" name="description" class="form-control" rows="5"  placeholder="Votre description  ici..."></textarea>
-										</div>
-									</div>
+                <!-- Expediteur -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" for="expediteur_id">
+                        <i class="ti ti-user-up"></i> Expéditeur
+                    </label>
+                    <select name="expediteur_id" id="expediteur_id" class="form-select">
+                        <option value="">-- Sélectionner l'expéditeur --</option>
+                        <!-- À remplir dynamiquement -->
+                    </select>
+                </div>
 
+                <!-- Destinataire -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" for="destinataire_id">
+                        <i class="ti ti-user-down"></i> Destinataire
+                    </label>
+                    <select name="destinataire_id" id="destinataire_id" class="form-select">
+                        <option value="">-- Sélectionner le destinataire --</option>
+                        <!-- À remplir dynamiquement -->
+                    </select>
+                </div>
 
-								</div>
-							</div>
+                <!-- Objet -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" for="objet">
+                        <i class="ti ti-heading"></i> Objet
+                    </label>
+                    <input type="text" class="form-control" name="objet" id="objet" placeholder="Sujet du message">
+                </div>
 
-							 <input type="hidden" id="idPoste">
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary me-2" id="annulerPoste">Annuler</button>
+                <!-- Contenu -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label" for="contenu">
+                        <i class="ti ti-message-dots"></i> Contenu du message <span class="text-danger">*</span>
+                    </label>
+                    <textarea name="contenu" id="contenu" class="form-control" rows="5" placeholder="Votre message ici..."></textarea>
+                </div>
 
-								<button type="submit" class="btn btn-primary" id="updatePoste">Modifier </button>
-								<button type="submit" class="btn btn-primary" id="ajouterPoste">Ajouter </button>
-							</div>
-						</form>
-					</div>
+                <!-- Lu -->
+                <div class="col-md-12 mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="lu" name="lu" value="1">
+                        <label class="form-check-label" for="lu">
+                            <i class="ti ti-eye-check"></i> Marquer comme lu
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary me-2" id="annulerMessage">
+                <i class="ti ti-x"></i> Annuler
+            </button>
+            <button type="submit" class="btn btn-primary" id="envoyerMessage">
+                <i class="ti ti-send"></i> Envoyer
+            </button>
+        </div>
+    </form>
+</div>
+
 				</div>
 			</div>
 			<!-- /Add Company -->
